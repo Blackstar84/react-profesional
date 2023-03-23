@@ -19,8 +19,12 @@ const nombres = [
 
 const Nombres = ()=>{
   //return <ul>{getNombres()}</ul>
-  return <ul>{
+  /* return <ul>{
     nombres.map(nombre => <li>{nombre}</li>)
+  }</ul> */
+
+  return <ul>{
+    nombres.map((nombre, index) => <li key={index}>{nombre}</li>)
   }</ul>
 }
 
