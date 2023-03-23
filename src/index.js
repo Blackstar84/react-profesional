@@ -1,36 +1,31 @@
 import React from "react";
 import { render } from "react-dom";
 
-/* function SaludarEnIdiomas({idioma}){
-  //if (idioma === 'es') return <span>Hola</span>;
-  //if (idioma === 'en') return <span>Hello</span>;
-  if (idioma === 'en') {
-    return <span>Hello</span>;
-  } else {
-    return <span>Hola</span>;
+const nombres = [
+  'Carlos',
+  'Eduardo',
+  'Cody',
+  'Marines'
+]
+
+/* function getNombres(){
+  const elementosLista = [];
+
+  for (let i = 0; i < nombres.length; i++) {
+    elementosLista.push(<li>{nombres[i]}</li>)
   }
+  return elementosLista;
 } */
 
-const Saludo = ()=>{
-  const nombre = 'Uriel';
-  const idioma = 'en';
-  //return <p>Hola { 2 + 3} </p>
-  //return <p>Hola {nombre}</p>
-
-  //return <p>Hola { `${nombre}` }</p>
-  //return <p><SaludarEnIdiomas idioma={'en'}/> { `${nombre}` }</p>
-  
-  return (
-  <div>
-    {
-      idioma === "en" ? <p>Hello {nombre} </p> : <p>Hola</p>
-    }
-  </div>
-  )
+const Nombres = ()=>{
+  //return <ul>{getNombres()}</ul>
+  return <ul>{
+    nombres.map(nombre => <li>{nombre}</li>)
+  }</ul>
 }
 
 const App = () => {
-  return <h1><Saludo/></h1>
+  return <div><Nombres /></div>
 
 } 
 
