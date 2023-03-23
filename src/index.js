@@ -2,7 +2,13 @@ import React from "react";
 import { render } from "react-dom";
 
 const Saludo = ()=>{
-  return <p>Hola </p>
+  const nombre = 'Uriel';
+
+  //return <p>Hola { 2 + 3} </p>
+  //return <p>Hola {nombre}</p>
+
+  return <p>Hola { `${nombre}` }</p>
+
 }
 
 const App = () => {
