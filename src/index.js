@@ -1,36 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { render } from "react-dom";
 
-const nombres = [
-  'Carlos',
-  'Eduardo',
-  'Cody',
-  'Marines'
-]
-
-/* function getNombres(){
-  const elementosLista = [];
-
-  for (let i = 0; i < nombres.length; i++) {
-    elementosLista.push(<li>{nombres[i]}</li>)
-  }
-  return elementosLista;
-} */
-
-const Nombres = ()=>{
-  //return <ul>{getNombres()}</ul>
-  /* return <ul>{
-    nombres.map(nombre => <li>{nombre}</li>)
-  }</ul> */
-
-  return <ul>{
-    nombres.map((nombre, index) => <li key={index}>{nombre}</li>)
-  }</ul>
+const Button = ()=>{
+  const [counter, setCounter] = useState(0);
+  return(
+    <div>
+      <p>Presionado: {counter}</p>
+      <button onClick={()=>setCounter(counter+1)}>Click me!</button>
+    </div>
+  )
+  
 }
 
-const App = () => {
-  return <div><Nombres /></div>
-
-} 
+const App = ()=>{
+  return <div>
+    <Button></Button>
+  </div>
+}
 
 render (<App/>, document.getElementById('root'));
