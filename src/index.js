@@ -1,10 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { render } from "react-dom";
 
-const Form = ()=>{
+const Form = ({showed})=>{
   const [title, setTitle]=useState("");
   const [body, setBody]=useState("");
 
+  const firstInput = useRef();
+
+  useEffect(()=>{
+    // Actualizar el DOM 
+    if(showed){
+      //console.log(firstInput);
+      firstInput.current.focus();
+    }
+    
+
+  },[showed]);
   const sendForm = (ev)=>{
     ev.preventDefault();
     fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -31,7 +42,7 @@ const Form = ()=>{
     <form onSubmit={(ev)=>sendForm(ev)}>
       <div>
         <label htmFor="title">Título</label>
-        <input type="text" id="title" value={title} onChange={(ev)=>setTitle(ev.target.value)} />
+        <input type="text" id="title" value={title} onChange={(ev)=>setTitle(ev.target.value)} ref={firstInput} />
       </div>
       <div>
         <label htmFor="body">Publicación</label>
@@ -43,9 +54,19 @@ const Form = ()=>{
 }
 
 
+const Accordion = ()=>{
+  const [show, setShow]=useState(false);
+  return(
+    <div>
+      <button onClick={()=>setShow(true)}>Mostrar Formulario</button>
+      {show && <Form showed={show} />}
+    </div>
+  )
+}
+
 const App = ()=>{
   return <div>
-    <Form/>
+    <Accordion />
   </div>
 }
 
